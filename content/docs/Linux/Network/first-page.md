@@ -1,5 +1,14 @@
 # First page
 
+Section renders pages in section as definition list, using title and description.
+
+## Example
+
+```tpl
+{{</* section */>}}
+```
+
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
 <!--more-->
