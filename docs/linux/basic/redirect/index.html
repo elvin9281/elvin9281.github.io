@@ -1,0 +1,177 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Redirect #  Shell 提供「可以取得任一執行中的程式，再更改 取得輸入 或 產生輸出 的方式，而 不必修改程式本身」
+執行handywork，輸入是名為「data.in」的檔案，輸出到名為「result.out」的檔案 #  handywork < data.in > result.out 把執行handywork的錯誤導到名為 err.msgs 的檔案 #  檔案描述符：stdin：0, stdout：1, stderr：2
+handywork < data.in > result.out 2> err.msgs 把「錯誤訊息(stderr：2)」和「正常輸出(stdout：1)」導到名為 result.out 的檔案」(如果沒有1, 錯誤訊息就只會被寫進 一個名為1的檔案裡 ) #  handywork < data.in > result.out 2>&1 or
+handywork < data.in &> result.out Bash - 解釋「echo &ldquo;hey&rdquo; >&2」 #  Ref: https://stackoverflow.com/questions/23489934/echo-2-some-text-what-does-it-mean-in-shell-scripting
+Bash - 解釋 XXX > /dev/nell > 2>&1 #    將左邊程式的所有標準輸出 stdout, 及標準錯誤輸出 stderr 導向到 /dev/null, 即左邊的程式只會執行, 而不會輸出任何程式執行的結果">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Redirect #  Shell 提供「可以取得任一執行中的程式，再更改 取得輸入 或 產生輸出 的方式，而 不必修改程式本身」
+執行handywork，輸入是名為「data.in」的檔案，輸出到名為「result.out」的檔案 #  handywork < data.in > result.out 把執行handywork的錯誤導到名為 err.msgs 的檔案 #  檔案描述符：stdin：0, stdout：1, stderr：2
+handywork < data.in > result.out 2> err.msgs 把「錯誤訊息(stderr：2)」和「正常輸出(stdout：1)」導到名為 result.out 的檔案」(如果沒有1, 錯誤訊息就只會被寫進 一個名為1的檔案裡 ) #  handywork < data.in > result.out 2>&1 or
+handywork < data.in &> result.out Bash - 解釋「echo &ldquo;hey&rdquo; >&2」 #  Ref: https://stackoverflow.com/questions/23489934/echo-2-some-text-what-does-it-mean-in-shell-scripting
+Bash - 解釋 XXX > /dev/nell > 2>&1 #    將左邊程式的所有標準輸出 stdout, 及標準錯誤輸出 stderr 導向到 /dev/null, 即左邊的程式只會執行, 而不會輸出任何程式執行的結果">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://elvin9281.github.io/docs/linux/basic/redirect/"><meta property="article:section" content="docs">
+<title>Redirect | Garlic Notes</title>
+<link rel=manifest href=/manifest.json>
+<link rel=icon href=/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css integrity="sha256-RhgbyTN1upMgJudTs3xA5v+LsWqe93DHi8xmPkV3sbo=" crossorigin=anonymous>
+<script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.f637dc558c73e0de670b6ab92e04fb0f11f6767a531560c4d4d0c1585d8eb1a6.js integrity="sha256-9jfcVYxz4N5nC2q5LgT7DxH2dnpTFWDE1NDBWF2OsaY=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/><span>Garlic Notes</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li class=book-section-flat>
+<span>Linux</span>
+<ul>
+<li>
+<input type=checkbox id=section-1ac00c496025bb970e71f53b9191a9cb class=toggle checked>
+<label for=section-1ac00c496025bb970e71f53b9191a9cb class="flex justify-between">
+<a role=button>Basic</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/basic/commands/>Commands</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/basic/redirect/ class=active>Redirect</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-4c6602e39772d57c04d18489251f849c class=toggle>
+<label for=section-4c6602e39772d57c04d18489251f849c class="flex justify-between">
+<a role=button>Iptables</a>
+</label>
+<ul>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-d8ec5bf26ca7276a35f64bf5af6a0173 class=toggle>
+<label for=section-d8ec5bf26ca7276a35f64bf5af6a0173 class="flex justify-between">
+<a role=button>Network</a>
+</label>
+<ul>
+</ul>
+</li>
+</ul>
+</li>
+<li class=book-section-flat>
+<span>Docker</span>
+<ul>
+<li>
+<input type=checkbox id=section-1810874d3eb20e10faea8bc43f2d002a class=toggle>
+<label for=section-1810874d3eb20e10faea8bc43f2d002a class="flex justify-between">
+<a role=button>Concept</a>
+</label>
+<ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/posts/>
+Blog
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Redirect</strong>
+<label for=toc-control>
+</label>
+</div>
+</header>
+<article class=markdown><h1 id=redirect>
+Redirect
+<a class=anchor href=#redirect>#</a>
+</h1>
+<p>Shell 提供「可以取得任一執行中的程式，再更改 <code>取得輸入</code> 或 <code>產生輸出</code> 的方式，而 <code>不必修改程式本身</code>」</p>
+<h2 id=執行handywork輸入是名為datain的檔案輸出到名為resultout的檔案>
+執行handywork，輸入是名為「data.in」的檔案，輸出到名為「result.out」的檔案
+<a class=anchor href=#%e5%9f%b7%e8%a1%8chandywork%e8%bc%b8%e5%85%a5%e6%98%af%e5%90%8d%e7%82%badatain%e7%9a%84%e6%aa%94%e6%a1%88%e8%bc%b8%e5%87%ba%e5%88%b0%e5%90%8d%e7%82%baresultout%e7%9a%84%e6%aa%94%e6%a1%88>#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>handywork &lt; data.in &gt; result.out
+</code></pre></div><h2 id=把執行handywork的錯誤導到名為-errmsgs-的檔案>
+把執行handywork的錯誤導到名為 err.msgs 的檔案
+<a class=anchor href=#%e6%8a%8a%e5%9f%b7%e8%a1%8chandywork%e7%9a%84%e9%8c%af%e8%aa%a4%e5%b0%8e%e5%88%b0%e5%90%8d%e7%82%ba-errmsgs-%e7%9a%84%e6%aa%94%e6%a1%88>#</a>
+</h2>
+<p>檔案描述符：stdin：0, stdout：1, stderr：2</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>handywork &lt; data.in &gt; result.out 2&gt; err.msgs
+</code></pre></div><h2 id=把錯誤訊息stderr2和正常輸出stdout1導到名為-resultout-的檔案如果沒有1-錯誤訊息就只會被寫進-一個名為1的檔案裡->
+把「錯誤訊息(stderr：2)」和「正常輸出(stdout：1)」導到名為 result.out 的檔案」(如果沒有1, 錯誤訊息就只會被寫進 <code>一個名為1的檔案裡</code> )
+<a class=anchor href=#%e6%8a%8a%e9%8c%af%e8%aa%a4%e8%a8%8a%e6%81%afstderr2%e5%92%8c%e6%ad%a3%e5%b8%b8%e8%bc%b8%e5%87%bastdout1%e5%b0%8e%e5%88%b0%e5%90%8d%e7%82%ba-resultout-%e7%9a%84%e6%aa%94%e6%a1%88%e5%a6%82%e6%9e%9c%e6%b2%92%e6%9c%891-%e9%8c%af%e8%aa%a4%e8%a8%8a%e6%81%af%e5%b0%b1%e5%8f%aa%e6%9c%83%e8%a2%ab%e5%af%ab%e9%80%b2-%e4%b8%80%e5%80%8b%e5%90%8d%e7%82%ba1%e7%9a%84%e6%aa%94%e6%a1%88%e8%a3%a1->#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>handywork &lt; data.in &gt; result.out 2&gt;&amp;1
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>handywork &lt; data.in &amp;&gt; result.out
+</code></pre></div><h2 id=bash---解釋echo-hey-2>
+Bash - 解釋「echo &ldquo;hey&rdquo; >&2」
+<a class=anchor href=#bash---%e8%a7%a3%e9%87%8becho-hey-2>#</a>
+</h2>
+<p><img src=https://i.imgur.com/HE4WvxT.png alt></p>
+<p>Ref: <a href=https://stackoverflow.com/questions/23489934/echo-2-some-text-what-does-it-mean-in-shell-scripting>https://stackoverflow.com/questions/23489934/echo-2-some-text-what-does-it-mean-in-shell-scripting</a></p>
+<h2 id=bash---解釋-xxx--devnell--21>
+Bash - 解釋 XXX > /dev/nell > 2>&1
+<a class=anchor href=#bash---%e8%a7%a3%e9%87%8b-xxx--devnell--21>#</a>
+</h2>
+<ul>
+<li>
+<p>將左邊程式的所有標準輸出 stdout, 及標準錯誤輸出 stderr 導向到 /dev/null, 即左邊的程式只會執行, 而不會輸出任何程式執行的結果</p>
+</li>
+<li>
+<p>&: 設定使用 fd 代號, 如果 “> dev/null 2>&1” 沒有加上 “&”, 會視後面的 “1” 為檔案名稱, 而不是 fd.(1: fd 的標準輸出 stdout.)</p>
+</li>
+<li>
+<p>Ref:<a href=https://www.opencli.com/linux/dev-null-2-and-1-meanning>“> /dev/null 2>&1” 的意思</a></p>
+</li>
+</ul>
+<h2 id=bash---如何只導standard-error到-devnull->
+Bash - 如何只導standard error到 /dev/null ?
+<a class=anchor href=#bash---%e5%a6%82%e4%bd%95%e5%8f%aa%e5%b0%8estandard-error%e5%88%b0-devnull->#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>command 2&gt;/dev/null
+</code></pre></div><p>(<a href=https://askubuntu.com/questions/68175/how-to-create-script-with-auto-complete>https://askubuntu.com/questions/68175/how-to-create-script-with-auto-complete</a>)</p>
+<p><img src=https://i.imgur.com/HaFYFVj.png alt></p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+</main>
+</body>
+</html>
