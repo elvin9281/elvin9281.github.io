@@ -2,19 +2,18 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content>
+<meta name=description content="brctl - ethernet bridge administration #   Create New Ethernet Bridge  brctl addbr br0  Display Available Bridge  brctl show  Delete Existing Bridge  brctl delbr br0  Add an Interface/Multiple Interfaces to Existing Bridge  brctl addif br0 eth0 eth1  Tracking MAC address of a Bridge  brctl showmacs br0  Enable/Disable Spanning Tree on Ethernet Bridge  # Enable brctl stp br0 on # Disable brctl stp br0 off  Display STP Parameter Values of a Bridge  brctl showstp br0 ">
 <meta name=theme-color content="#FFFFFF">
-<meta name=color-scheme content="light dark"><meta property="og:title" content="Docs">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://elvin9281.github.io/docs/">
-<title>Docs | Garlic Notes</title>
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="brctl - ethernet bridge administration #   Create New Ethernet Bridge  brctl addbr br0  Display Available Bridge  brctl show  Delete Existing Bridge  brctl delbr br0  Add an Interface/Multiple Interfaces to Existing Bridge  brctl addif br0 eth0 eth1  Tracking MAC address of a Bridge  brctl showmacs br0  Enable/Disable Spanning Tree on Ethernet Bridge  # Enable brctl stp br0 on # Disable brctl stp br0 off  Display STP Parameter Values of a Bridge  brctl showstp br0 ">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://elvin9281.github.io/docs/linux/network/brctl/"><meta property="article:section" content="docs">
+<title>Brctl | Garlic Notes</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css integrity="sha256-RhgbyTN1upMgJudTs3xA5v+LsWqe93DHi8xmPkV3sbo=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
 <script defer src=/en.search.min.36956fdd61d06a6c2aac6c65d4141d5108f8cbdc8133edf0d8cd4bcd9306b36d.js integrity="sha256-NpVv3WHQamwqrGxl1BQdUQj4y9yBM+3w2M1LzZMGs20=" crossorigin=anonymous></script>
-<link rel=alternate type=application/rss+xml href=https://elvin9281.github.io/docs/index.xml title="Garlic Notes">
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -62,13 +61,13 @@
 </ul>
 </li>
 <li>
-<input type=checkbox id=section-d8ec5bf26ca7276a35f64bf5af6a0173 class=toggle>
+<input type=checkbox id=section-d8ec5bf26ca7276a35f64bf5af6a0173 class=toggle checked>
 <label for=section-d8ec5bf26ca7276a35f64bf5af6a0173 class="flex justify-between">
 <a role=button>Network</a>
 </label>
 <ul>
 <li>
-<a href=https://elvin9281.github.io/docs/linux/network/brctl/>Brctl</a>
+<a href=https://elvin9281.github.io/docs/linux/network/brctl/ class=active>Brctl</a>
 </li>
 <li>
 <a href=https://elvin9281.github.io/docs/linux/network/curl/>Curl</a>
@@ -108,17 +107,54 @@ Blog
 <label for=menu-control>
 <img src=/svg/menu.svg class=book-icon alt=Menu>
 </label>
-<strong>Docs</strong>
+<strong>Brctl</strong>
 <label for=toc-control>
 </label>
 </div>
 </header>
-<article class=markdown></article>
+<article class=markdown><h2 id=brctl---ethernet-bridge-administration>
+brctl - ethernet bridge administration
+<a class=anchor href=#brctl---ethernet-bridge-administration>#</a>
+</h2>
+<ul>
+<li>Create New Ethernet Bridge</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>brctl addbr br0
+</code></pre></div><ul>
+<li>Display Available Bridge</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>brctl show
+</code></pre></div><ul>
+<li>Delete Existing Bridge</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>brctl delbr br0
+</code></pre></div><ul>
+<li>Add an Interface/Multiple Interfaces to Existing Bridge</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>brctl addif br0 eth0 eth1
+</code></pre></div><ul>
+<li>Tracking MAC address of a Bridge</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>brctl showmacs br0
+</code></pre></div><ul>
+<li>Enable/Disable Spanning Tree on Ethernet Bridge</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl># Enable
+brctl stp br0 on
+# Disable
+brctl stp br0 off
+</code></pre></div><ul>
+<li>Display STP Parameter Values of a Bridge</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>brctl showstp br0
+</code></pre></div></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 </div>
 <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 </footer>
+<div class=book-comments>
+</div>
 <label for=menu-control class="hidden book-menu-overlay"></label>
 </div>
 </main>

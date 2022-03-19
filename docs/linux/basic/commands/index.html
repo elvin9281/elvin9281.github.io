@@ -3,11 +3,11 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="Commands #  紀錄常用的指令
-tar for .tar.gz #   壓縮：  tar zcvf FileName.tar.gz DirName  解壓縮：  tar zxvf FileName.tar.gz ">
+tar for .tar.gz #   壓縮：  tar zcvf FileName.tar.gz DirName  解壓縮：  tar zxvf FileName.tar.gz  screen #   開啟一個互動式的 Shell  screen  Detach 互動式的 Shell  Crtl + A + d  列所有 互動式的 Shell(會列出 Session ID)  screen -ls  Attach 到互動式的 Shell  screen -r screen -r + SessionID  結束 互動式的 Shell  exit  uname - Get Kernel Version #  uname -a  4 : Kernel version 19 : Major revision 0 : Minor revision 17 : Patch level or number  ">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
 <meta property="og:description" content="Commands #  紀錄常用的指令
-tar for .tar.gz #   壓縮：  tar zcvf FileName.tar.gz DirName  解壓縮：  tar zxvf FileName.tar.gz ">
+tar for .tar.gz #   壓縮：  tar zcvf FileName.tar.gz DirName  解壓縮：  tar zxvf FileName.tar.gz  screen #   開啟一個互動式的 Shell  screen  Detach 互動式的 Shell  Crtl + A + d  列所有 互動式的 Shell(會列出 Session ID)  screen -ls  Attach 到互動式的 Shell  screen -r screen -r + SessionID  結束 互動式的 Shell  exit  uname - Get Kernel Version #  uname -a  4 : Kernel version 19 : Major revision 0 : Minor revision 17 : Patch level or number  ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://elvin9281.github.io/docs/linux/basic/commands/"><meta property="article:section" content="docs">
 <title>Commands | Garlic Notes</title>
@@ -15,7 +15,7 @@ tar for .tar.gz #   壓縮：  tar zcvf FileName.tar.gz DirName  解壓縮：  t
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css integrity="sha256-RhgbyTN1upMgJudTs3xA5v+LsWqe93DHi8xmPkV3sbo=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.f637dc558c73e0de670b6ab92e04fb0f11f6767a531560c4d4d0c1585d8eb1a6.js integrity="sha256-9jfcVYxz4N5nC2q5LgT7DxH2dnpTFWDE1NDBWF2OsaY=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.36956fdd61d06a6c2aac6c65d4141d5108f8cbdc8133edf0d8cd4bcd9306b36d.js integrity="sha256-NpVv3WHQamwqrGxl1BQdUQj4y9yBM+3w2M1LzZMGs20=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -49,6 +49,9 @@ tar for .tar.gz #   壓縮：  tar zcvf FileName.tar.gz DirName  解壓縮：  t
 <li>
 <a href=https://elvin9281.github.io/docs/linux/basic/redirect/>Redirect</a>
 </li>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/basic/vim/>Vim</a>
+</li>
 </ul>
 </li>
 <li>
@@ -65,6 +68,12 @@ tar for .tar.gz #   壓縮：  tar zcvf FileName.tar.gz DirName  解壓縮：  t
 <a role=button>Network</a>
 </label>
 <ul>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/network/brctl/>Brctl</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/network/curl/>Curl</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -122,7 +131,47 @@ Commands
 <li>解壓縮：</li>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>tar zxvf FileName.tar.gz
-</code></pre></div></article>
+</code></pre></div><hr>
+<h2 id=screen>
+screen
+<a class=anchor href=#screen>#</a>
+</h2>
+<ul>
+<li>開啟一個互動式的 Shell</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>screen
+</code></pre></div><ul>
+<li>Detach 互動式的 Shell</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>Crtl + A + d
+</code></pre></div><ul>
+<li>列所有 互動式的 Shell(會列出 Session ID)</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>screen -ls
+</code></pre></div><p><img src=https://i.imgur.com/Q3XqcjY.png alt></p>
+<ul>
+<li>Attach 到互動式的 Shell</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>screen -r
+screen -r + SessionID
+</code></pre></div><ul>
+<li>結束 互動式的 Shell</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>exit
+</code></pre></div><hr>
+<h2 id=uname---get-kernel-version>
+uname - Get Kernel Version
+<a class=anchor href=#uname---get-kernel-version>#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>uname -a
+</code></pre></div><p><img src=https://i.imgur.com/QGyao5Q.png alt></p>
+<ul>
+<li>4 : Kernel version</li>
+<li>19 : Major revision</li>
+<li>0 : Minor revision</li>
+<li>17 : Patch level or number</li>
+</ul>
+</article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 </div>

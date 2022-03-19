@@ -1,0 +1,272 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="vim - Editor #  一般指令模式 (command mode) #    選取單字：v 整行：shift+v
+  複製選取後，按 y
+  貼上將剛剛複製的內容在想貼上的地方，按 p
+  刪除選取後，按 d
+  復原上一步按 u
+  重做上一步Ctrl + r
+  搜尋按 / ，若想繼續搜尋，按 n
+  移至檔尾（最後一行的第一個非空白字元處）按 G
+  移至檔首（第一行之第一個非空白字元處）按 gg
+  前往特定行數: + 行數
+  前往成對的括號 ([{}])、/* */按 %
+  PageUp 翻頁Ctrl+b
+  PageDown 翻頁Ctrl+f
+  多行註解在想加註解的最頂行 ctrl + v ，選到最底行 shift + i 加入要註解的字 ( e.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="vim - Editor #  一般指令模式 (command mode) #    選取單字：v 整行：shift+v
+  複製選取後，按 y
+  貼上將剛剛複製的內容在想貼上的地方，按 p
+  刪除選取後，按 d
+  復原上一步按 u
+  重做上一步Ctrl + r
+  搜尋按 / ，若想繼續搜尋，按 n
+  移至檔尾（最後一行的第一個非空白字元處）按 G
+  移至檔首（第一行之第一個非空白字元處）按 gg
+  前往特定行數: + 行數
+  前往成對的括號 ([{}])、/* */按 %
+  PageUp 翻頁Ctrl+b
+  PageDown 翻頁Ctrl+f
+  多行註解在想加註解的最頂行 ctrl + v ，選到最底行 shift + i 加入要註解的字 ( e.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://elvin9281.github.io/docs/linux/basic/vim/"><meta property="article:section" content="docs">
+<title>Vim | Garlic Notes</title>
+<link rel=manifest href=/manifest.json>
+<link rel=icon href=/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css integrity="sha256-RhgbyTN1upMgJudTs3xA5v+LsWqe93DHi8xmPkV3sbo=" crossorigin=anonymous>
+<script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.36956fdd61d06a6c2aac6c65d4141d5108f8cbdc8133edf0d8cd4bcd9306b36d.js integrity="sha256-NpVv3WHQamwqrGxl1BQdUQj4y9yBM+3w2M1LzZMGs20=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/><span>Garlic Notes</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li class=book-section-flat>
+<span>Linux</span>
+<ul>
+<li>
+<input type=checkbox id=section-1ac00c496025bb970e71f53b9191a9cb class=toggle checked>
+<label for=section-1ac00c496025bb970e71f53b9191a9cb class="flex justify-between">
+<a role=button>Basic</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/basic/commands/>Commands</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/basic/redirect/>Redirect</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/basic/vim/ class=active>Vim</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-4c6602e39772d57c04d18489251f849c class=toggle>
+<label for=section-4c6602e39772d57c04d18489251f849c class="flex justify-between">
+<a role=button>Iptables</a>
+</label>
+<ul>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-d8ec5bf26ca7276a35f64bf5af6a0173 class=toggle>
+<label for=section-d8ec5bf26ca7276a35f64bf5af6a0173 class="flex justify-between">
+<a role=button>Network</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/network/brctl/>Brctl</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/linux/network/curl/>Curl</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class=book-section-flat>
+<span>Docker</span>
+<ul>
+<li>
+<input type=checkbox id=section-1810874d3eb20e10faea8bc43f2d002a class=toggle>
+<label for=section-1810874d3eb20e10faea8bc43f2d002a class="flex justify-between">
+<a role=button>Concept</a>
+</label>
+<ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/posts/>
+Blog
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Vim</strong>
+<label for=toc-control>
+</label>
+</div>
+</header>
+<article class=markdown><h2 id=vim---editor>
+vim - Editor
+<a class=anchor href=#vim---editor>#</a>
+</h2>
+<h2 id=一般指令模式-command-mode>
+一般指令模式 (command mode)
+<a class=anchor href=#%e4%b8%80%e8%88%ac%e6%8c%87%e4%bb%a4%e6%a8%a1%e5%bc%8f-command-mode>#</a>
+</h2>
+<ul>
+<li>
+<p>選取
+單字：v
+整行：shift+v</p>
+</li>
+<li>
+<p>複製
+選取後，按 y</p>
+</li>
+<li>
+<p>貼上
+將剛剛複製的內容在想貼上的地方，按 p</p>
+</li>
+<li>
+<p>刪除
+選取後，按 d</p>
+</li>
+<li>
+<p>復原上一步
+按 u</p>
+</li>
+<li>
+<p>重做上一步
+Ctrl + r</p>
+</li>
+<li>
+<p>搜尋
+按 / ，若想繼續搜尋，按 n</p>
+</li>
+<li>
+<p>移至檔尾（最後一行的第一個非空白字元處）
+按 G</p>
+</li>
+<li>
+<p>移至檔首（第一行之第一個非空白字元處）
+按 gg</p>
+</li>
+<li>
+<p>前往特定行數
+: + 行數</p>
+</li>
+<li>
+<p>前往成對的括號 ([{}])、/* */
+按 %</p>
+</li>
+<li>
+<p>PageUp 翻頁
+Ctrl+b</p>
+</li>
+<li>
+<p>PageDown 翻頁
+Ctrl+f</p>
+</li>
+<li>
+<p>多行註解
+在想加註解的最頂行 ctrl + v ，選到最底行
+shift + i 加入要註解的字 ( e.g. // 或 #
+然後按 esc 就會自動把剛剛選取的地方都加入</p>
+</li>
+<li>
+<p>多行解註解
+到最頂行ctrl + v
+把所有要刪的字用灰色覆蓋，像如果只有 # 就不用向右移
+然後按d</p>
+</li>
+</ul>
+<h3 id=一般指令模式切換到編輯模式>
+「一般指令模式」切換到「編輯模式」
+<a class=anchor href=#%e4%b8%80%e8%88%ac%e6%8c%87%e4%bb%a4%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8f%9b%e5%88%b0%e7%b7%a8%e8%bc%af%e6%a8%a1%e5%bc%8f>#</a>
+</h3>
+<ul>
+<li>
+<p>從目前游標所在處開始編輯
+按 i</p>
+</li>
+<li>
+<p>在目前游標所在的下一列處插入新的一列
+按 o</p>
+</li>
+</ul>
+<h3 id=編輯模式切換到一般指令模式>
+「編輯模式」切換到「一般指令模式」
+<a class=anchor href=#%e7%b7%a8%e8%bc%af%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8f%9b%e5%88%b0%e4%b8%80%e8%88%ac%e6%8c%87%e4%bb%a4%e6%a8%a1%e5%bc%8f>#</a>
+</h3>
+<ul>
+<li>退出vim編輯模式
+Ctrl+Z 或 按 ESC</li>
+</ul>
+<h3 id=一般指令模式切換到指令列模式>
+「一般指令模式」切換到「指令列模式」
+<a class=anchor href=#%e4%b8%80%e8%88%ac%e6%8c%87%e4%bb%a4%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8f%9b%e5%88%b0%e6%8c%87%e4%bb%a4%e5%88%97%e6%a8%a1%e5%bc%8f>#</a>
+</h3>
+<ul>
+<li>
+<p>離開vim
+輸入 :q</p>
+</li>
+<li>
+<p>儲存檔案並離開
+輸入 :wq</p>
+</li>
+<li>
+<p>強制儲存檔案並離開
+輸入 :wq!</p>
+</li>
+<li>
+<p>強制離開不儲存檔案
+輸入 :q!</p>
+</li>
+</ul>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+</main>
+</body>
+</html>
