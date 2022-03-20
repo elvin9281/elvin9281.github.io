@@ -3,8 +3,8 @@
 ## 一般指令模式 (command mode)
 
 - <font color=blue>選取</font>
-單字：v
-整行：shift+v
+  - 單字：v
+  - 整行：shift+v
 
 - <font color=blue>複製</font>
 選取後，按 y
@@ -29,6 +29,12 @@ Ctrl + r
 
 - <font color=blue>移至檔首（第一行之第一個非空白字元處）</font>
 按 gg
+
+- <font color=blue>移至當行行首</font>
+按 ```0```
+
+- <font color=blue>移至當行行尾</font>
+按 ```$```
 
 - <font color=blue>前往特定行數</font>
 : + 行數

@@ -1,14 +1,30 @@
-# Redirect 
+# Redirection (<, >, >>)
+
+## [在 ShellScript 內 使用 ```exec ``` 做 「永久性 Redirection」](https://tw511.com/a/01/1931.html)
+
+- 在 XXX.sh 中，所有`stdout` & `stderr` 都會導到 `/path/logfile`
+- 使用 exec 命令可以永久性地重定向，後續命令的輸入輸出方向也被確定了，直到再次遇到 exec 命令才會改變重定向的方向；換句話說，一次重定向，永久有效。
+
+
+```tpl
+XXX.sh
+#!/bin/bash -x
+exec &>> /path/logfile
+```
+
+---
+
+## Redirection 基本概念
 
 Shell 提供「可以取得任一執行中的程式，再更改 `取得輸入` 或 `產生輸出` 的方式，而 `不必修改程式本身`」
 
-## 執行handywork，輸入是名為「data.in」的檔案，輸出到名為「result.out」的檔案
+### 執行handywork，輸入是名為「data.in」的檔案，輸出到名為「result.out」的檔案
 
 ```tpl
 handywork < data.in > result.out
 ```
 
-## 把執行handywork的錯誤導到名為 err.msgs 的檔案
+### 把執行handywork的錯誤導到名為 err.msgs 的檔案
 
 檔案描述符：stdin：0, stdout：1, stderr：2 
 
