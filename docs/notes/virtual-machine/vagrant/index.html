@@ -1,0 +1,261 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Vagrant #  虛擬機器(virtual machine) 管理工具  啟動 VM #   ex: 新起一個 Debain 10 VM
+ vagrant init generic/debian10 vagrant up  Vagrant Export & Import #   打包 & 匯入 Box
+  確認目前在 Virtual Box 內的 Box 有哪些  vboxmanage list vms  用 vagrant package 打包成 box  nohup vagrant package --base $(vboxmanage list vms | grep &#34;vagrant&#34; | awk '{print $1}' | tr -d '&#34;') –-output output.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Vagrant #  虛擬機器(virtual machine) 管理工具  啟動 VM #   ex: 新起一個 Debain 10 VM
+ vagrant init generic/debian10 vagrant up  Vagrant Export & Import #   打包 & 匯入 Box
+  確認目前在 Virtual Box 內的 Box 有哪些  vboxmanage list vms  用 vagrant package 打包成 box  nohup vagrant package --base $(vboxmanage list vms | grep &#34;vagrant&#34; | awk '{print $1}' | tr -d '&#34;') –-output output.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://elvin9281.github.io/docs/notes/virtual-machine/vagrant/"><meta property="article:section" content="docs">
+<title>Vagrant | Garlic Notes</title>
+<link rel=manifest href=/manifest.json>
+<link rel=icon href=/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css integrity="sha256-RhgbyTN1upMgJudTs3xA5v+LsWqe93DHi8xmPkV3sbo=" crossorigin=anonymous>
+<script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.096301a017057912a1485fa025264909c9bf12c460a9d2b166be19170fa2c517.js integrity="sha256-CWMBoBcFeRKhSF+gJSZJCcm/EsRgqdKxZr4ZFw+ixRc=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/><span>Garlic Notes</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li class=book-section-flat>
+<span>Notes</span>
+<ul>
+<li>
+<input type=checkbox id=section-c675a868e6c7966b8fa5245aad12a64c class=toggle>
+<label for=section-c675a868e6c7966b8fa5245aad12a64c class="flex justify-between">
+<a role=button>Docker</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/docker/commands/>Commands</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-930ff177a0ce1f5063e515c7a7d7c8d3 class=toggle>
+<label for=section-930ff177a0ce1f5063e515c7a7d7c8d3 class="flex justify-between">
+<a role=button>Linux Commands</a>
+</label>
+<ul>
+<li>
+<input type=checkbox id=section-2d3643436d929ee2b4473f55a3c127ae class=toggle>
+<label for=section-2d3643436d929ee2b4473f55a3c127ae class="flex justify-between">
+<a role=button>Basic</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/commands/>Commands</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/file/>File</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/redirect/>Redirect</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/vim/>Vim</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-0cd96428afd5daf453d4762be9533fa0 class=toggle>
+<label for=section-0cd96428afd5daf453d4762be9533fa0 class="flex justify-between">
+<a role=button>Iptables</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/iptables/commands/>Commands</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-08b2f77b6b79c794216470d3c71c25b8 class=toggle>
+<label for=section-08b2f77b6b79c794216470d3c71c25b8 class="flex justify-between">
+<a role=button>Network</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/brctl/>Brctl</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/curl/>Curl</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/ip/>IP</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-d9e9cc08d3187c6865e47afdd6eacd62 class=toggle>
+<label for=section-d9e9cc08d3187c6865e47afdd6eacd62 class="flex justify-between">
+<a role=button>Shell</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/shell/string/>String</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-ffaabd74a5f082ef602371bb1a05878c class=toggle checked>
+<label for=section-ffaabd74a5f082ef602371bb1a05878c class="flex justify-between">
+<a role=button>Virtual Machine</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/virtual-machine/vagrant/ class=active>Vagrant</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/posts/>
+Blog
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Vagrant</strong>
+<label for=toc-control>
+<img src=/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#啟動-vm>啟動 VM</a></li>
+<li><a href=#vagrant-export--importhttpswwwjianshucomp05197ab5b767><a href=https://www.jianshu.com/p/05197ab5b767>Vagrant Export & Import</a></a></li>
+<li><a href=#vagrant-scphttpsgithubcominvernizzivagrant-scp><a href=https://github.com/invernizzi/vagrant-scp>Vagrant Scp</a></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=vagrant>
+<strong>Vagrant</strong>
+<a class=anchor href=#vagrant>#</a>
+</h1>
+<blockquote class="book-hint info">
+虛擬機器(virtual machine) 管理工具
+</blockquote>
+<h3 id=啟動-vm>
+啟動 VM
+<a class=anchor href=#%e5%95%9f%e5%8b%95-vm>#</a>
+</h3>
+<blockquote>
+<p>ex: 新起一個 Debain 10 VM</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>vagrant init generic/debian10
+vagrant up
+</code></pre></div><hr>
+<h3 id=vagrant-export--importhttpswwwjianshucomp05197ab5b767>
+<a href=https://www.jianshu.com/p/05197ab5b767>Vagrant Export & Import</a>
+<a class=anchor href=#vagrant-export--importhttpswwwjianshucomp05197ab5b767>#</a>
+</h3>
+<blockquote>
+<p>打包 & 匯入 Box</p>
+</blockquote>
+<ul>
+<li>確認目前在 Virtual Box 內的 Box 有哪些</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>vboxmanage list vms
+</code></pre></div><ul>
+<li>用 <code>vagrant package</code> 打包成 box</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>nohup vagrant package --base $(vboxmanage list vms | grep &#34;vagrant&#34; | awk &#39;<span style=color:#75715e>{</span><span style=color:#a6e22e>print</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span><span style=color:#75715e>}</span>&#39; | tr -d &#39;&#34;&#39;) –-output output.box
+</code></pre></div><ul>
+<li>載入 box</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>vagrant box add -name output output.box
+</code></pre></div><ul>
+<li>以「output.box 為 base」初始化</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>vagrant init output
+</code></pre></div><ul>
+<li>啟動 VM</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>vagrant up
+</code></pre></div><hr>
+<h3 id=vagrant-scphttpsgithubcominvernizzivagrant-scp>
+<a href=https://github.com/invernizzi/vagrant-scp>Vagrant Scp</a>
+<a class=anchor href=#vagrant-scphttpsgithubcominvernizzivagrant-scp>#</a>
+</h3>
+<blockquote>
+<p>傳檔到VM/從VM 拿檔</p>
+</blockquote>
+<ul>
+<li>安裝 <code>vagrant-scp</code></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>vagrant plugin install vagrant-scp
+</code></pre></div><ul>
+<li>Transfer file from <strong>Host OS 的 abc.txt</strong> 到 <strong>Guest OS 的 home 路徑下的 destFile.txt</strong></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>vagrant scp abc.txt :destFile.txt
+</code></pre></div><ul>
+<li>Transfer file from <strong>Gest OS 的 abc.txt</strong> 到 <strong>Host OS 的 當下路徑下的 destFile.txt</strong></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>vagrant scp :abc.txt destFile.txt
+</code></pre></div></article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#啟動-vm>啟動 VM</a></li>
+<li><a href=#vagrant-export--importhttpswwwjianshucomp05197ab5b767><a href=https://www.jianshu.com/p/05197ab5b767>Vagrant Export & Import</a></a></li>
+<li><a href=#vagrant-scphttpsgithubcominvernizzivagrant-scp><a href=https://github.com/invernizzi/vagrant-scp>Vagrant Scp</a></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

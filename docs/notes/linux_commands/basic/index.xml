@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Garlic Notes</title><link>https://elvin9281.github.io/docs/notes/linux_commands/basic/</link><description>Recent content on Garlic Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://elvin9281.github.io/docs/notes/linux_commands/basic/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://elvin9281.github.io/docs/notes/linux_commands/basic/commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://elvin9281.github.io/docs/notes/linux_commands/basic/commands/</guid><description>Commands # 紀錄常用的指令
+tar for .tar.gz # 壓縮： tar zcvf FileName.tar.gz DirName 解壓縮： tar zxvf FileName.tar.gz screen # 開啟一個互動式的 Shell screen Detach 互動式的 Shell Crtl + A + d 列所有 互動式的 Shell(會列出 Session ID) screen -ls Attach 到互動式的 Shell screen -r screen -r + SessionID 結束 互動式的 Shell exit uname - Get Kernel Version # uname -a 4 : Kernel version 19 : Major revision 0 : Minor revision 17 : Patch level or number</description></item><item><title/><link>https://elvin9281.github.io/docs/notes/linux_commands/basic/file/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://elvin9281.github.io/docs/notes/linux_commands/basic/file/</guid><description>File # File relationed commands
+Redirecting the content of a file to the command &amp;quot;echo&amp;quot; # echo &amp;#34;$(cat my_file.txt)&amp;#34;</description></item><item><title/><link>https://elvin9281.github.io/docs/notes/linux_commands/basic/redirect/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://elvin9281.github.io/docs/notes/linux_commands/basic/redirect/</guid><description>Redirection (&amp;lt;, &amp;gt;, &amp;raquo;) # 在 ShellScript 內 使用 exec 做 「永久性 Redirection」 # 在 XXX.sh 中，所有stdout &amp;amp; stderr 都會導到 /path/logfile 使用 exec 命令可以永久性地重定向，後續命令的輸入輸出方向也被確定了，直到再次遇到 exec 命令才會改變重定向的方向；換句話說，一次重定向，永久有效。 XXX.sh #!/bin/bash -x exec &amp;amp;&amp;gt;&amp;gt; /path/logfile Redirection 基本概念 # Shell 提供「可以取得任一執行中的程式，再更改 取得輸入 或 產生輸出 的方式，而 不必修改程式本身」
+執行handywork，輸入是名為「data.in」的檔案，輸出到名為「result.out」的檔案 # handywork &amp;lt; data.in &amp;gt; result.out 把執行handywork的錯誤導到名為 err.msgs 的檔案 # 檔案描述符：stdin：0, stdout：1, stderr：2
+handywork &amp;lt; data.in &amp;gt; result.out 2&amp;gt; err.</description></item><item><title/><link>https://elvin9281.github.io/docs/notes/linux_commands/basic/vim/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://elvin9281.github.io/docs/notes/linux_commands/basic/vim/</guid><description>vim - Editor # 一般指令模式 (command mode) # 選取 單字：v 整行：shift+v 複製選取後，按 y
+貼上將剛剛複製的內容在想貼上的地方，按 p
+刪除選取後，按 d
+復原上一步按 u
+重做上一步Ctrl + r
+搜尋按 / ，若想繼續搜尋，按 n
+移至檔尾（最後一行的第一個非空白字元處）按 G
+移至檔首（第一行之第一個非空白字元處）按 gg
+移至當行行首按 0
+移至當行行尾按 $
+前往特定行數: + 行數
+前往成對的括號 ([{}])、/* */按 %</description></item></channel></rss>

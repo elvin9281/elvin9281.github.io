@@ -1,0 +1,295 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Docker & Container Commands #   紀錄常用的指令
+ Images #   查看目前 Images(不包含「Intermediate Images」)   Docker 17.05+ 以後提供名為「多階段構建 (multi-stage builds)」的新功能，透過將原先流水線中的多個映像檔整合進同個 Dockerfile 內，而後續的映像檔可透過指令取得中間映像檔 (intermediate image) 所產生的檔案 (artifacts)，如此便能讓整個過程更為簡單，也確保流水線簡潔易懂及提高維護性
+ docker images // or docker image ls  查看目前 Images(含「Intermediate Images」)  docker images -a // or docker image ls -a  只列出所有 Images 的 ID(不含「Intermediate Images」)  docker images -q // or docker image ls -q  只列出所有 Images 的 ID(含「Intermediate Images」)  docker images -qa // or docker image ls -qa  建立一個名稱為 busybox 的 Image  -i : Interactive，Keep STDIN open even if not attached \n -t : Allocate a pseudo-TTY    docker create -it --name busybox busybox  強制刪 Docker Image (用 ID)  docker rmi -f <Image_ID>  強制刪除所有 docker images(含「Intermediate Images」)  docker rmi -f $(docker images -q) Container #   自動執行 docker pull(若 Local 無該 Image)，啟動並進入背景執行   -d : Run container in background and print container ID">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Docker & Container Commands #   紀錄常用的指令
+ Images #   查看目前 Images(不包含「Intermediate Images」)   Docker 17.05+ 以後提供名為「多階段構建 (multi-stage builds)」的新功能，透過將原先流水線中的多個映像檔整合進同個 Dockerfile 內，而後續的映像檔可透過指令取得中間映像檔 (intermediate image) 所產生的檔案 (artifacts)，如此便能讓整個過程更為簡單，也確保流水線簡潔易懂及提高維護性
+ docker images // or docker image ls  查看目前 Images(含「Intermediate Images」)  docker images -a // or docker image ls -a  只列出所有 Images 的 ID(不含「Intermediate Images」)  docker images -q // or docker image ls -q  只列出所有 Images 的 ID(含「Intermediate Images」)  docker images -qa // or docker image ls -qa  建立一個名稱為 busybox 的 Image  -i : Interactive，Keep STDIN open even if not attached \n -t : Allocate a pseudo-TTY    docker create -it --name busybox busybox  強制刪 Docker Image (用 ID)  docker rmi -f <Image_ID>  強制刪除所有 docker images(含「Intermediate Images」)  docker rmi -f $(docker images -q) Container #   自動執行 docker pull(若 Local 無該 Image)，啟動並進入背景執行   -d : Run container in background and print container ID">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://elvin9281.github.io/docs/notes/docker/commands/"><meta property="article:section" content="docs">
+<title>Commands | Garlic Notes</title>
+<link rel=manifest href=/manifest.json>
+<link rel=icon href=/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css integrity="sha256-RhgbyTN1upMgJudTs3xA5v+LsWqe93DHi8xmPkV3sbo=" crossorigin=anonymous>
+<script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.096301a017057912a1485fa025264909c9bf12c460a9d2b166be19170fa2c517.js integrity="sha256-CWMBoBcFeRKhSF+gJSZJCcm/EsRgqdKxZr4ZFw+ixRc=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/><span>Garlic Notes</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li class=book-section-flat>
+<span>Notes</span>
+<ul>
+<li>
+<input type=checkbox id=section-c675a868e6c7966b8fa5245aad12a64c class=toggle checked>
+<label for=section-c675a868e6c7966b8fa5245aad12a64c class="flex justify-between">
+<a role=button>Docker</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/docker/commands/ class=active>Commands</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-930ff177a0ce1f5063e515c7a7d7c8d3 class=toggle>
+<label for=section-930ff177a0ce1f5063e515c7a7d7c8d3 class="flex justify-between">
+<a role=button>Linux Commands</a>
+</label>
+<ul>
+<li>
+<input type=checkbox id=section-2d3643436d929ee2b4473f55a3c127ae class=toggle>
+<label for=section-2d3643436d929ee2b4473f55a3c127ae class="flex justify-between">
+<a role=button>Basic</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/commands/>Commands</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/file/>File</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/redirect/>Redirect</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/vim/>Vim</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-0cd96428afd5daf453d4762be9533fa0 class=toggle>
+<label for=section-0cd96428afd5daf453d4762be9533fa0 class="flex justify-between">
+<a role=button>Iptables</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/iptables/commands/>Commands</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-08b2f77b6b79c794216470d3c71c25b8 class=toggle>
+<label for=section-08b2f77b6b79c794216470d3c71c25b8 class="flex justify-between">
+<a role=button>Network</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/brctl/>Brctl</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/curl/>Curl</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/ip/>IP</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-d9e9cc08d3187c6865e47afdd6eacd62 class=toggle>
+<label for=section-d9e9cc08d3187c6865e47afdd6eacd62 class="flex justify-between">
+<a role=button>Shell</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/shell/string/>String</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-ffaabd74a5f082ef602371bb1a05878c class=toggle>
+<label for=section-ffaabd74a5f082ef602371bb1a05878c class="flex justify-between">
+<a role=button>Virtual Machine</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/virtual-machine/vagrant/>Vagrant</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/posts/>
+Blog
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Commands</strong>
+<label for=toc-control>
+<img src=/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#images>Images</a></li>
+<li><a href=#container>Container</a>
+<ul>
+<li><a href=#stop-all-containershttpstypeofnandevhow-to-stop-all-docker-containers><a href=https://typeofnan.dev/how-to-stop-all-docker-containers/>Stop All Containers</a></a></li>
+<li><a href=#remov-all-containers>Remov All Containers</a></li>
+<li><a href=#list-all-docker-container-names-and-their-ipshttpsbytefreaksnetapplicationsdockerhow-to-list-all-docker-container-names-and-their-ips><a href=https://bytefreaks.net/applications/docker/how-to-list-all-docker-container-names-and-their-ips>List all Docker Container Names and their IPs</a></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=docker--container-commands>
+Docker & Container Commands
+<a class=anchor href=#docker--container-commands>#</a>
+</h1>
+<blockquote>
+<p>紀錄常用的指令</p>
+</blockquote>
+<h2 id=images>
+Images
+<a class=anchor href=#images>#</a>
+</h2>
+<ul>
+<li>查看目前 Images(不包含「Intermediate Images」)</li>
+</ul>
+<blockquote>
+<p>Docker 17.05+ 以後提供名為「多階段構建 (multi-stage builds)」的新功能，透過將原先流水線中的多個映像檔整合進同個 Dockerfile 內，而後續的映像檔可透過指令取得中間映像檔 (intermediate image) 所產生的檔案 (artifacts)，如此便能讓整個過程更為簡單，也確保流水線簡潔易懂及提高維護性</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker images
+// or
+docker image ls
+</code></pre></div><ul>
+<li>查看目前 Images(含「Intermediate Images」)</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker images -a
+// or
+docker image ls -a
+</code></pre></div><ul>
+<li>只列出所有 Images 的 ID(不含「Intermediate Images」)</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker images -q
+// or
+docker image ls -q
+</code></pre></div><ul>
+<li>只列出所有 Images 的 ID(含「Intermediate Images」)</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker images -qa
+// or
+docker image ls -qa
+</code></pre></div><ul>
+<li>建立一個名稱為 busybox 的 Image
+<ul>
+<li><code>-i</code> : Interactive，Keep STDIN open even if not attached \n</li>
+<li><code>-t</code> : Allocate a pseudo-TTY</li>
+</ul>
+</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker create -it --name busybox busybox
+</code></pre></div><ul>
+<li>強制刪 Docker Image (用 ID)</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker rmi -f &lt;Image_ID&gt;
+</code></pre></div><ul>
+<li>強制刪除所有 docker images(含「Intermediate Images」)</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker rmi -f $(docker images -q) 
+</code></pre></div><h2 id=container>
+Container
+<a class=anchor href=#container>#</a>
+</h2>
+<ul>
+<li>自動執行 docker pull(若 Local 無該 Image)，啟動並進入背景執行</li>
+</ul>
+<blockquote>
+<p><code>-d</code> : Run container in background and print container ID</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl># docker run -d &lt;REPOSITORY&gt;:&lt;TAG&gt;
+docker run -d debian:jessie 
+</code></pre></div><ul>
+<li>自動執行 docker pull(若 Local 無該 Image)，跑起來自動執行 bash 程式進入此 Container</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl># docker run -it &lt;REPOSITORY&gt;:&lt;TAG&gt; sh
+docker run -it debian:jessie sh
+</code></pre></div><h3 id=stop-all-containershttpstypeofnandevhow-to-stop-all-docker-containers>
+<a href=https://typeofnan.dev/how-to-stop-all-docker-containers/>Stop All Containers</a>
+<a class=anchor href=#stop-all-containershttpstypeofnandevhow-to-stop-all-docker-containers>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker kill $(docker ps -q)
+</code></pre></div><h3 id=remov-all-containers>
+Remov All Containers
+<a class=anchor href=#remov-all-containers>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker rm $(docker ps -a -q)
+</code></pre></div><h3 id=list-all-docker-container-names-and-their-ipshttpsbytefreaksnetapplicationsdockerhow-to-list-all-docker-container-names-and-their-ips>
+<a href=https://bytefreaks.net/applications/docker/how-to-list-all-docker-container-names-and-their-ips>List all Docker Container Names and their IPs</a>
+<a class=anchor href=#list-all-docker-container-names-and-their-ipshttpsbytefreaksnetapplicationsdockerhow-to-list-all-docker-container-names-and-their-ips>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tpl data-lang=tpl>docker ps -q | xargs -n 1 docker inspect --format &#39;<span style=color:#75715e>{{</span> <span style=color:#f92672>.</span><span style=color:#a6e22e>Name</span> <span style=color:#75715e>}}</span> <span style=color:#75715e>{{</span><span style=color:#a6e22e>range</span> <span style=color:#f92672>.</span><span style=color:#a6e22e>NetworkSettings</span><span style=color:#f92672>.</span><span style=color:#a6e22e>Networks</span><span style=color:#75715e>}}</span> <span style=color:#75715e>{{</span><span style=color:#f92672>.</span><span style=color:#a6e22e>IPAddress</span><span style=color:#75715e>}}{{</span><span style=color:#a6e22e>end</span><span style=color:#75715e>}}</span>&#39; | sed &#39;s#^/##&#39;
+</code></pre></div><hr>
+<ul>
+<li>Ref
+<ul>
+<li><a href=https://tachingchen.com/tw/blog/docker-multi-stage-builds/>https://tachingchen.com/tw/blog/docker-multi-stage-builds/</a></li>
+<li><a href=https://blog.longwin.com.tw/2017/01/docker-learn-initial-command-cheat-sheet-2017/>https://blog.longwin.com.tw/2017/01/docker-learn-initial-command-cheat-sheet-2017/</a></li>
+</ul>
+</li>
+</ul>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#images>Images</a></li>
+<li><a href=#container>Container</a>
+<ul>
+<li><a href=#stop-all-containershttpstypeofnandevhow-to-stop-all-docker-containers><a href=https://typeofnan.dev/how-to-stop-all-docker-containers/>Stop All Containers</a></a></li>
+<li><a href=#remov-all-containers>Remov All Containers</a></li>
+<li><a href=#list-all-docker-container-names-and-their-ipshttpsbytefreaksnetapplicationsdockerhow-to-list-all-docker-container-names-and-their-ips><a href=https://bytefreaks.net/applications/docker/how-to-list-all-docker-container-names-and-their-ips>List all Docker Container Names and their IPs</a></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

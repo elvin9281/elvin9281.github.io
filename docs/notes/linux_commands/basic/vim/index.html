@@ -1,0 +1,346 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="vim - Editor #  一般指令模式 (command mode) #    選取 單字：v 整行：shift+v    複製選取後，按 y
+  貼上將剛剛複製的內容在想貼上的地方，按 p
+  刪除選取後，按 d
+  復原上一步按 u
+  重做上一步Ctrl + r
+  搜尋按 / ，若想繼續搜尋，按 n
+  移至檔尾（最後一行的第一個非空白字元處）按 G
+  移至檔首（第一行之第一個非空白字元處）按 gg
+  移至當行行首按 0
+  移至當行行尾按 $
+  前往特定行數: + 行數
+  前往成對的括號 ([{}])、/* */按 %">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="vim - Editor #  一般指令模式 (command mode) #    選取 單字：v 整行：shift+v    複製選取後，按 y
+  貼上將剛剛複製的內容在想貼上的地方，按 p
+  刪除選取後，按 d
+  復原上一步按 u
+  重做上一步Ctrl + r
+  搜尋按 / ，若想繼續搜尋，按 n
+  移至檔尾（最後一行的第一個非空白字元處）按 G
+  移至檔首（第一行之第一個非空白字元處）按 gg
+  移至當行行首按 0
+  移至當行行尾按 $
+  前往特定行數: + 行數
+  前往成對的括號 ([{}])、/* */按 %">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://elvin9281.github.io/docs/notes/linux_commands/basic/vim/"><meta property="article:section" content="docs">
+<title>Vim | Garlic Notes</title>
+<link rel=manifest href=/manifest.json>
+<link rel=icon href=/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css integrity="sha256-RhgbyTN1upMgJudTs3xA5v+LsWqe93DHi8xmPkV3sbo=" crossorigin=anonymous>
+<script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.096301a017057912a1485fa025264909c9bf12c460a9d2b166be19170fa2c517.js integrity="sha256-CWMBoBcFeRKhSF+gJSZJCcm/EsRgqdKxZr4ZFw+ixRc=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/><span>Garlic Notes</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li class=book-section-flat>
+<span>Notes</span>
+<ul>
+<li>
+<input type=checkbox id=section-c675a868e6c7966b8fa5245aad12a64c class=toggle>
+<label for=section-c675a868e6c7966b8fa5245aad12a64c class="flex justify-between">
+<a role=button>Docker</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/docker/commands/>Commands</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-930ff177a0ce1f5063e515c7a7d7c8d3 class=toggle checked>
+<label for=section-930ff177a0ce1f5063e515c7a7d7c8d3 class="flex justify-between">
+<a role=button>Linux Commands</a>
+</label>
+<ul>
+<li>
+<input type=checkbox id=section-2d3643436d929ee2b4473f55a3c127ae class=toggle checked>
+<label for=section-2d3643436d929ee2b4473f55a3c127ae class="flex justify-between">
+<a role=button>Basic</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/commands/>Commands</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/file/>File</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/redirect/>Redirect</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/basic/vim/ class=active>Vim</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-0cd96428afd5daf453d4762be9533fa0 class=toggle>
+<label for=section-0cd96428afd5daf453d4762be9533fa0 class="flex justify-between">
+<a role=button>Iptables</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/iptables/commands/>Commands</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-08b2f77b6b79c794216470d3c71c25b8 class=toggle>
+<label for=section-08b2f77b6b79c794216470d3c71c25b8 class="flex justify-between">
+<a role=button>Network</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/brctl/>Brctl</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/curl/>Curl</a>
+</li>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/network/ip/>IP</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-d9e9cc08d3187c6865e47afdd6eacd62 class=toggle>
+<label for=section-d9e9cc08d3187c6865e47afdd6eacd62 class="flex justify-between">
+<a role=button>Shell</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/linux_commands/shell/string/>String</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-ffaabd74a5f082ef602371bb1a05878c class=toggle>
+<label for=section-ffaabd74a5f082ef602371bb1a05878c class="flex justify-between">
+<a role=button>Virtual Machine</a>
+</label>
+<ul>
+<li>
+<a href=https://elvin9281.github.io/docs/notes/virtual-machine/vagrant/>Vagrant</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/posts/>
+Blog
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Vim</strong>
+<label for=toc-control>
+<img src=/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#vim---editor>vim - Editor</a></li>
+<li><a href=#一般指令模式-command-mode>一般指令模式 (command mode)</a>
+<ul>
+<li><a href=#一般指令模式切換到編輯模式>「一般指令模式」切換到「編輯模式」</a></li>
+<li><a href=#編輯模式切換到一般指令模式>「編輯模式」切換到「一般指令模式」</a></li>
+<li><a href=#一般指令模式切換到指令列模式>「一般指令模式」切換到「指令列模式」</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h2 id=vim---editor>
+vim - Editor
+<a class=anchor href=#vim---editor>#</a>
+</h2>
+<h2 id=一般指令模式-command-mode>
+一般指令模式 (command mode)
+<a class=anchor href=#%e4%b8%80%e8%88%ac%e6%8c%87%e4%bb%a4%e6%a8%a1%e5%bc%8f-command-mode>#</a>
+</h2>
+<ul>
+<li>
+<p>選取</p>
+<ul>
+<li>單字：v</li>
+<li>整行：shift+v</li>
+</ul>
+</li>
+<li>
+<p>複製
+選取後，按 y</p>
+</li>
+<li>
+<p>貼上
+將剛剛複製的內容在想貼上的地方，按 p</p>
+</li>
+<li>
+<p>刪除
+選取後，按 d</p>
+</li>
+<li>
+<p>復原上一步
+按 u</p>
+</li>
+<li>
+<p>重做上一步
+Ctrl + r</p>
+</li>
+<li>
+<p>搜尋
+按 / ，若想繼續搜尋，按 n</p>
+</li>
+<li>
+<p>移至檔尾（最後一行的第一個非空白字元處）
+按 G</p>
+</li>
+<li>
+<p>移至檔首（第一行之第一個非空白字元處）
+按 gg</p>
+</li>
+<li>
+<p>移至當行行首
+按 <code>0</code></p>
+</li>
+<li>
+<p>移至當行行尾
+按 <code>$</code></p>
+</li>
+<li>
+<p>前往特定行數
+: + 行數</p>
+</li>
+<li>
+<p>前往成對的括號 ([{}])、/* */
+按 %</p>
+</li>
+<li>
+<p>PageUp 翻頁
+Ctrl+b</p>
+</li>
+<li>
+<p>PageDown 翻頁
+Ctrl+f</p>
+</li>
+<li>
+<p>多行註解
+在想加註解的最頂行 ctrl + v ，選到最底行
+shift + i 加入要註解的字 ( e.g. // 或 #
+然後按 esc 就會自動把剛剛選取的地方都加入</p>
+</li>
+<li>
+<p>多行解註解
+到最頂行ctrl + v
+把所有要刪的字用灰色覆蓋，像如果只有 # 就不用向右移
+然後按d</p>
+</li>
+</ul>
+<h3 id=一般指令模式切換到編輯模式>
+「一般指令模式」切換到「編輯模式」
+<a class=anchor href=#%e4%b8%80%e8%88%ac%e6%8c%87%e4%bb%a4%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8f%9b%e5%88%b0%e7%b7%a8%e8%bc%af%e6%a8%a1%e5%bc%8f>#</a>
+</h3>
+<ul>
+<li>
+<p>從目前游標所在處開始編輯
+按 i</p>
+</li>
+<li>
+<p>在目前游標所在的下一列處插入新的一列
+按 o</p>
+</li>
+</ul>
+<h3 id=編輯模式切換到一般指令模式>
+「編輯模式」切換到「一般指令模式」
+<a class=anchor href=#%e7%b7%a8%e8%bc%af%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8f%9b%e5%88%b0%e4%b8%80%e8%88%ac%e6%8c%87%e4%bb%a4%e6%a8%a1%e5%bc%8f>#</a>
+</h3>
+<ul>
+<li>退出vim編輯模式
+Ctrl+Z 或 按 ESC</li>
+</ul>
+<h3 id=一般指令模式切換到指令列模式>
+「一般指令模式」切換到「指令列模式」
+<a class=anchor href=#%e4%b8%80%e8%88%ac%e6%8c%87%e4%bb%a4%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8f%9b%e5%88%b0%e6%8c%87%e4%bb%a4%e5%88%97%e6%a8%a1%e5%bc%8f>#</a>
+</h3>
+<ul>
+<li>
+<p>離開vim
+輸入 :q</p>
+</li>
+<li>
+<p>儲存檔案並離開
+輸入 :wq</p>
+</li>
+<li>
+<p>強制儲存檔案並離開
+輸入 :wq!</p>
+</li>
+<li>
+<p>強制離開不儲存檔案
+輸入 :q!</p>
+</li>
+</ul>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#vim---editor>vim - Editor</a></li>
+<li><a href=#一般指令模式-command-mode>一般指令模式 (command mode)</a>
+<ul>
+<li><a href=#一般指令模式切換到編輯模式>「一般指令模式」切換到「編輯模式」</a></li>
+<li><a href=#編輯模式切換到一般指令模式>「編輯模式」切換到「一般指令模式」</a></li>
+<li><a href=#一般指令模式切換到指令列模式>「一般指令模式」切換到「指令列模式」</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
