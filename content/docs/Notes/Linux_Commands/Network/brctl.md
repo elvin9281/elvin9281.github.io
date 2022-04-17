@@ -1,7 +1,10 @@
-## brctl - ethernet bridge administration 
+# brctl   
+{{< hint info >}}
+Ethernet Bridge Administration
+{{< /hint >}}
 
-- Create New Ethernet Bridge
-```tpl
+- <font color=red>Create New Ethernet Bridge</font>
+```bash
 brctl addbr br0
 ```
 

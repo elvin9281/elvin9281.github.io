@@ -60,6 +60,22 @@ docker run -d debian:jessie
 docker run -it debian:jessie sh
 ```
 
+
+### [Stop All Containers](https://typeofnan.dev/how-to-stop-all-docker-containers/)
+```tpl
+docker kill $(docker ps -q)
+```
+
+### Remov All Containers
+```tpl
+docker rm $(docker ps -a -q)
+```
+### [List all Docker Container Names and their IPs](https://bytefreaks.net/applications/docker/how-to-list-all-docker-container-names-and-their-ips)
+```tpl
+docker ps -q | xargs -n 1 docker inspect --format '{{ .Name }} {{range .NetworkSettings.Networks}} {{.IPAddress}}{{end}}' | sed 's#^/##'
+```
+
+
 ---
 
 - Ref
