@@ -2,19 +2,20 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content>
+<meta name=description content="JWT Auth #   https://github.com/elvin9281/jwt_auth
+ Flow #  目的：用 docker compose 將 Apifox 測試後端的流程串起來 #  Makfile #  Usage: make [target] Targets: up - All Services up down - All Services down clean_all - Clean all images ls - Running services up by docker-compose into_db - Go into postgres container build_apifox - Build apifox container image docker-compose 的 Service Discovery #   注意：都在 app-net 的情況下，apifox Container 打到 backend Container 的 URL 會是 http://backend.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://elvin9281.github.io/docs/notes/">
-<title>Notes | Garlic Notes</title>
+<meta property="og:description" content="JWT Auth #   https://github.com/elvin9281/jwt_auth
+ Flow #  目的：用 docker compose 將 Apifox 測試後端的流程串起來 #  Makfile #  Usage: make [target] Targets: up - All Services up down - All Services down clean_all - Clean all images ls - Running services up by docker-compose into_db - Go into postgres container build_apifox - Build apifox container image docker-compose 的 Service Discovery #   注意：都在 app-net 的情況下，apifox Container 打到 backend Container 的 URL 會是 http://backend.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://elvin9281.github.io/docs/notes/sideproject/jwt_auth/"><meta property="article:section" content="docs">
+<title>JWT Auth | Garlic Notes</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css integrity="sha256-RhgbyTN1upMgJudTs3xA5v+LsWqe93DHi8xmPkV3sbo=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
 <script defer src=/en.search.min.65e5087da30f0fb8b5eb0f27d7da5ded433039c3b5b8b5c31af3c0db5a8341df.js integrity="sha256-ZeUIfaMPD7i16w8n19pd7UMwOcO1uLXDGvPA21qDQd8=" crossorigin=anonymous></script>
-<link rel=alternate type=application/rss+xml href=https://elvin9281.github.io/docs/notes/index.xml title="Garlic Notes">
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -126,13 +127,13 @@
 </ul>
 </li>
 <li>
-<input type=checkbox id=section-4abbb1db4cc0f9d10402d2c2abc255b1 class=toggle>
+<input type=checkbox id=section-4abbb1db4cc0f9d10402d2c2abc255b1 class=toggle checked>
 <label for=section-4abbb1db4cc0f9d10402d2c2abc255b1 class="flex justify-between">
 <a role=button>Side Project</a>
 </label>
 <ul>
 <li>
-<a href=https://elvin9281.github.io/docs/notes/sideproject/jwt_auth/>JWT Auth</a>
+<a href=https://elvin9281.github.io/docs/notes/sideproject/jwt_auth/ class=active>JWT Auth</a>
 </li>
 </ul>
 </li>
@@ -178,19 +179,127 @@ Blog
 <label for=menu-control>
 <img src=/svg/menu.svg class=book-icon alt=Menu>
 </label>
-<strong>Notes</strong>
+<strong>JWT Auth</strong>
 <label for=toc-control>
+<img src=/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
 </div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#flow>Flow</a></li>
+<li><a href=#目的用-docker-compose-將-apifox-測試後端的流程串起來>目的：用 docker compose 將 Apifox 測試後端的流程串起來</a>
+<ul>
+<li><a href=#makfile>Makfile</a></li>
+<li><a href=#docker-compose-的-service-discovery>docker-compose 的 Service Discovery</a></li>
+<li><a href=#backend>Backend</a></li>
+<li><a href=#apifox>Apifox</a></li>
+</ul>
+</li>
+<li><a href=#todo>TODO</a></li>
+</ul>
+</nav>
+</aside>
 </header>
-<article class=markdown></article>
+<article class=markdown><h1 id=jwt-auth>
+JWT Auth
+<a class=anchor href=#jwt-auth>#</a>
+</h1>
+<blockquote>
+<p><a href=https://github.com/elvin9281/jwt_auth>https://github.com/elvin9281/jwt_auth</a></p>
+</blockquote>
+<h2 id=flow>
+Flow
+<a class=anchor href=#flow>#</a>
+</h2>
+<p><img src=https://i.imgur.com/QELG0Bn.png alt></p>
+<h2 id=目的用-docker-compose-將-apifox-測試後端的流程串起來>
+目的：用 docker compose 將 Apifox 測試後端的流程串起來
+<a class=anchor href=#%e7%9b%ae%e7%9a%84%e7%94%a8-docker-compose-%e5%b0%87-apifox-%e6%b8%ac%e8%a9%a6%e5%be%8c%e7%ab%af%e7%9a%84%e6%b5%81%e7%a8%8b%e4%b8%b2%e8%b5%b7%e4%be%86>#</a>
+</h2>
+<h3 id=makfile>
+Makfile
+<a class=anchor href=#makfile>#</a>
+</h3>
+<pre tabindex=0><code>Usage: make [target]
+Targets:
+  up            - All Services up
+  down          - All Services down
+  clean_all     - Clean all images
+  ls            - Running services up by docker-compose
+  into_db       - Go into postgres container
+  build_apifox  - Build apifox container image
+</code></pre><h3 id=docker-compose-的-service-discovery>
+docker-compose 的 Service Discovery
+<a class=anchor href=#docker-compose-%e7%9a%84-service-discovery>#</a>
+</h3>
+<ul>
+<li>注意：都在 <code>app-net</code> 的情況下，<code>apifox</code> Container 打到 <code>backend</code> Container 的 URL 會是 <code>http://backend.app-net:8080</code></li>
+<li>注意： Apifox 建立測試時，環境要另外建立
+<img src=https://i.imgur.com/klLAE65.png alt></li>
+</ul>
+<h3 id=backend>
+Backend
+<a class=anchor href=#backend>#</a>
+</h3>
+<ul>
+<li>來源：<a href=https://www.bezkoder.com/node-js-jwt-authentication-postgresql/>Node.js JWT Authentication with PostgreSQL example</a></li>
+</ul>
+<h3 id=apifox>
+Apifox
+<a class=anchor href=#apifox>#</a>
+</h3>
+<ul>
+<li>注意：後置操作，要將 <code>access_token</code> 存起來</li>
+</ul>
+<pre tabindex=0><code>pm.test(&quot;Get access token&quot;, ()=&gt;{
+    const response = pm.response.json();
+    const token = response[&quot;accessToken&quot;];
+    pm.environment.set(&quot;access_token&quot;, token);
+});
+</code></pre><ul>
+<li>注意：用<code>apifox-cli</code>產出報告會在<code>apifox-reports</code>，所以執行 container 的時候要 <code>mount /apifox-reports</code></li>
+</ul>
+<pre tabindex=0><code># test_jwt_auth.sh
+docker run -it --rm --network app-net \
+	-v ./apifox-reports:/apifox-reports \
+	-v ./data/jwt_auth.apifox-cli.json:/data/jwt_auth.apifox-cli.json \
+	apifox:latest bash -c &quot;apifox run /data/jwt_auth.apifox-cli.json -r cli,html,json&quot;
+</code></pre><h2 id=todo>
+TODO
+<a class=anchor href=#todo>#</a>
+</h2>
+<ul>
+<li>Apifox 產出 Swagger 文件的流程</li>
+</ul>
+</article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 </div>
 <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 </footer>
+<div class=book-comments>
+</div>
 <label for=menu-control class="hidden book-menu-overlay"></label>
 </div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#flow>Flow</a></li>
+<li><a href=#目的用-docker-compose-將-apifox-測試後端的流程串起來>目的：用 docker compose 將 Apifox 測試後端的流程串起來</a>
+<ul>
+<li><a href=#makfile>Makfile</a></li>
+<li><a href=#docker-compose-的-service-discovery>docker-compose 的 Service Discovery</a></li>
+<li><a href=#backend>Backend</a></li>
+<li><a href=#apifox>Apifox</a></li>
+</ul>
+</li>
+<li><a href=#todo>TODO</a></li>
+</ul>
+</nav>
+</div>
+</aside>
 </main>
 </body>
 </html>
